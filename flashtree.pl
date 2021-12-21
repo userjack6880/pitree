@@ -14,7 +14,7 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE. See the GNU General Public License for more details.
 #
-# You should ahve recieved a copy fo the GNU General Public License along with
+# You should have recieved a copy fo the GNU General Public License along with
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
 use strict;

@@ -5,15 +5,15 @@ distributed under GNU General Public License v3.
 
 You'll need a few perl modules to get this working.
 
-DateTime
-JSON
-Device::BCM2835
-Switch
-Data::Dumper
-LWP::UserAgent
-LWP::Protocol::https
-Time::HiRes qw(usleep)
-Curses
-Net::Ping
+- DateTime
+- JSON
+- Device::BCM2835
+- Switch
+- Data::Dumper
+- LWP::UserAgent
+- LWP::Protocol::https
+- Time::HiRes qw(usleep)
+- Curses
+- Net::Ping
 
 Have a Merry Christmas and a Happy New Year.

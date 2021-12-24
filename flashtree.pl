@@ -194,6 +194,24 @@ sub random_set {
 	heartbeat();
 	flash_rand();
 	usleep(500000);
+
+
+	
+	if ( $main::cycle == 10 ) {
+		# before we even bother with tweet mode, we need to revert to regular mode if there is no net
+		if ( conn_status() == 1 ) {
+			$main::win->move(4,1);
+			$main::win->clrtoeol();
+			$main::win->addstr(4,1,"Switching to Online Mode!");
+			$main::win->refresh();
+			sleep(1);
+			$main::mode = 1;
+			print_mode($main::win, $main::mode);
+			return;
+		}
+	}
+
+	$main::cycle == 10 ? $main::cycle = 0 : $main::cycle++;		# this should occur every 10 seconds or so
 }
 
 # now turn off the lights - seems to turn some pins on by default
@@ -249,12 +267,13 @@ sub tweet_set {
 		print_tweets($main::win, $tweet_count);		
 
 		# calculations to figure how how quickly to flash	
-		my $divisions = $tweet_count/200;	# divide threshold by 10 and replace the number to adjust the speed
+		my $divisions = $tweet_count/2000;	# divide threshold by 10 and replace the number to adjust the speed
 		if ( $divisions > 0 ) {		#otherwise this will break
 			$speed = 10000000/$divisions;
 		}
 		else {
 			$speed = -1;
+			$cycle = 90; # this should force it to try again
 		}
 		$main::speed = $speed;
 
